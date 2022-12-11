@@ -74,7 +74,7 @@ func TestSimpleListGenerator(t *testing.T) {
 		Name: "simple-list-generator",
 	},
 		Spec: v1alpha1.ApplicationSetSpec{
-			Template: v1alpha1.ApplicationSetTemplate{
+			Template: &v1alpha1.ApplicationSetTemplate{
 				ApplicationSetTemplateMeta: v1alpha1.ApplicationSetTemplateMeta{Name: "{{cluster}}-guestbook"},
 				Spec: argov1alpha1.ApplicationSpec{
 					Project: "default",
@@ -167,7 +167,7 @@ func TestSimpleListGeneratorGoTemplate(t *testing.T) {
 	},
 		Spec: v1alpha1.ApplicationSetSpec{
 			GoTemplate: true,
-			Template: v1alpha1.ApplicationSetTemplate{
+			Template: &v1alpha1.ApplicationSetTemplate{
 				ApplicationSetTemplateMeta: v1alpha1.ApplicationSetTemplateMeta{Name: "{{.cluster}}-guestbook"},
 				Spec: argov1alpha1.ApplicationSpec{
 					Project: "default",
@@ -268,7 +268,7 @@ func TestSimpleGitDirectoryGenerator(t *testing.T) {
 			Name: "simple-git-generator",
 		},
 			Spec: v1alpha1.ApplicationSetSpec{
-				Template: v1alpha1.ApplicationSetTemplate{
+				Template: &v1alpha1.ApplicationSetTemplate{
 					ApplicationSetTemplateMeta: v1alpha1.ApplicationSetTemplateMeta{Name: "{{path.basename}}"},
 					Spec: argov1alpha1.ApplicationSpec{
 						Project: "default",
@@ -378,7 +378,7 @@ func TestSimpleGitDirectoryGeneratorGoTemplate(t *testing.T) {
 		},
 			Spec: v1alpha1.ApplicationSetSpec{
 				GoTemplate: true,
-				Template: v1alpha1.ApplicationSetTemplate{
+				Template: &v1alpha1.ApplicationSetTemplate{
 					ApplicationSetTemplateMeta: v1alpha1.ApplicationSetTemplateMeta{Name: "{{.path.basename}}"},
 					Spec: argov1alpha1.ApplicationSpec{
 						Project: "default",
@@ -487,7 +487,7 @@ func TestSimpleGitFilesGenerator(t *testing.T) {
 			Name: "simple-git-generator",
 		},
 			Spec: v1alpha1.ApplicationSetSpec{
-				Template: v1alpha1.ApplicationSetTemplate{
+				Template: &v1alpha1.ApplicationSetTemplate{
 					ApplicationSetTemplateMeta: v1alpha1.ApplicationSetTemplateMeta{Name: "{{cluster.name}}-guestbook"},
 					Spec: argov1alpha1.ApplicationSpec{
 						Project: "default",
@@ -597,7 +597,7 @@ func TestSimpleGitFilesGeneratorGoTemplate(t *testing.T) {
 		},
 			Spec: v1alpha1.ApplicationSetSpec{
 				GoTemplate: true,
-				Template: v1alpha1.ApplicationSetTemplate{
+				Template: &v1alpha1.ApplicationSetTemplate{
 					ApplicationSetTemplateMeta: v1alpha1.ApplicationSetTemplateMeta{Name: "{{.cluster.name}}-guestbook"},
 					Spec: argov1alpha1.ApplicationSpec{
 						Project: "default",
@@ -673,7 +673,7 @@ func TestSimpleGitFilesPreserveResourcesOnDeletion(t *testing.T) {
 			Name: "simple-git-generator",
 		},
 			Spec: v1alpha1.ApplicationSetSpec{
-				Template: v1alpha1.ApplicationSetTemplate{
+				Template: &v1alpha1.ApplicationSetTemplate{
 					ApplicationSetTemplateMeta: v1alpha1.ApplicationSetTemplateMeta{Name: "{{cluster.name}}-guestbook"},
 					Spec: argov1alpha1.ApplicationSpec{
 						Project: "default",
@@ -734,7 +734,7 @@ func TestSimpleGitFilesPreserveResourcesOnDeletionGoTemplate(t *testing.T) {
 		},
 			Spec: v1alpha1.ApplicationSetSpec{
 				GoTemplate: true,
-				Template: v1alpha1.ApplicationSetTemplate{
+				Template: &v1alpha1.ApplicationSetTemplate{
 					ApplicationSetTemplateMeta: v1alpha1.ApplicationSetTemplateMeta{Name: "{{.cluster.name}}-guestbook"},
 					Spec: argov1alpha1.ApplicationSpec{
 						Project: "default",
@@ -818,7 +818,7 @@ func TestSimpleSCMProviderGenerator(t *testing.T) {
 		Name: "simple-scm-provider-generator",
 	},
 		Spec: v1alpha1.ApplicationSetSpec{
-			Template: v1alpha1.ApplicationSetTemplate{
+			Template: &v1alpha1.ApplicationSetTemplate{
 				ApplicationSetTemplateMeta: v1alpha1.ApplicationSetTemplateMeta{Name: "{{ repository }}-guestbook"},
 				Spec: argov1alpha1.ApplicationSpec{
 					Project: "default",
@@ -886,7 +886,7 @@ func TestSimpleSCMProviderGeneratorGoTemplate(t *testing.T) {
 	},
 		Spec: v1alpha1.ApplicationSetSpec{
 			GoTemplate: true,
-			Template: v1alpha1.ApplicationSetTemplate{
+			Template: &v1alpha1.ApplicationSetTemplate{
 				ApplicationSetTemplateMeta: v1alpha1.ApplicationSetTemplateMeta{Name: "{{ .repository }}-guestbook"},
 				Spec: argov1alpha1.ApplicationSpec{
 					Project: "default",
@@ -950,7 +950,7 @@ func TestCustomApplicationFinalizers(t *testing.T) {
 		Name: "simple-list-generator",
 	},
 		Spec: v1alpha1.ApplicationSetSpec{
-			Template: v1alpha1.ApplicationSetTemplate{
+			Template: &v1alpha1.ApplicationSetTemplate{
 				ApplicationSetTemplateMeta: v1alpha1.ApplicationSetTemplateMeta{
 					Name:       "{{cluster}}-guestbook",
 					Finalizers: []string{"resources-finalizer.argocd.argoproj.io/background"},
@@ -1017,7 +1017,7 @@ func TestCustomApplicationFinalizersGoTemplate(t *testing.T) {
 	},
 		Spec: v1alpha1.ApplicationSetSpec{
 			GoTemplate: true,
-			Template: v1alpha1.ApplicationSetTemplate{
+			Template: &v1alpha1.ApplicationSetTemplate{
 				ApplicationSetTemplateMeta: v1alpha1.ApplicationSetTemplateMeta{
 					Name:       "{{.cluster}}-guestbook",
 					Finalizers: []string{"resources-finalizer.argocd.argoproj.io/background"},
@@ -1091,7 +1091,7 @@ func TestSimplePullRequestGenerator(t *testing.T) {
 		Name: "simple-pull-request-generator",
 	},
 		Spec: v1alpha1.ApplicationSetSpec{
-			Template: v1alpha1.ApplicationSetTemplate{
+			Template: &v1alpha1.ApplicationSetTemplate{
 				ApplicationSetTemplateMeta: v1alpha1.ApplicationSetTemplateMeta{Name: "guestbook-{{ number }}"},
 				Spec: argov1alpha1.ApplicationSpec{
 					Project: "default",
@@ -1166,7 +1166,7 @@ func TestSimplePullRequestGeneratorGoTemplate(t *testing.T) {
 	},
 		Spec: v1alpha1.ApplicationSetSpec{
 			GoTemplate: true,
-			Template: v1alpha1.ApplicationSetTemplate{
+			Template: &v1alpha1.ApplicationSetTemplate{
 				ApplicationSetTemplateMeta: v1alpha1.ApplicationSetTemplateMeta{Name: "guestbook-{{ .number }}"},
 				Spec: argov1alpha1.ApplicationSpec{
 					Project: "default",
@@ -1242,7 +1242,7 @@ func TestGitGeneratorPrivateRepo(t *testing.T) {
 			Name: "simple-git-generator-private",
 		},
 			Spec: v1alpha1.ApplicationSetSpec{
-				Template: v1alpha1.ApplicationSetTemplate{
+				Template: &v1alpha1.ApplicationSetTemplate{
 					ApplicationSetTemplateMeta: v1alpha1.ApplicationSetTemplateMeta{Name: "{{path.basename}}"},
 					Spec: argov1alpha1.ApplicationSpec{
 						Project: "default",
@@ -1318,7 +1318,7 @@ func TestGitGeneratorPrivateRepoGoTemplate(t *testing.T) {
 		},
 			Spec: v1alpha1.ApplicationSetSpec{
 				GoTemplate: true,
-				Template: v1alpha1.ApplicationSetTemplate{
+				Template: &v1alpha1.ApplicationSetTemplate{
 					ApplicationSetTemplateMeta: v1alpha1.ApplicationSetTemplateMeta{Name: "{{.path.basename}}"},
 					Spec: argov1alpha1.ApplicationSpec{
 						Project: "default",

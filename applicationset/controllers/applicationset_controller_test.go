@@ -187,7 +187,7 @@ func TestExtractApplications(t *testing.T) {
 				},
 				Spec: argov1alpha1.ApplicationSetSpec{
 					Generators: []argov1alpha1.ApplicationSetGenerator{generator},
-					Template:   cc.template,
+					Template:   &cc.template,
 				},
 			})
 
@@ -300,7 +300,7 @@ func TestMergeTemplateApplications(t *testing.T) {
 				},
 				Spec: argov1alpha1.ApplicationSetSpec{
 					Generators: []argov1alpha1.ApplicationSetGenerator{generator},
-					Template:   cc.template,
+					Template:   &cc.template,
 				},
 			},
 			)
@@ -370,7 +370,7 @@ func TestCreateOrUpdateInCluster(t *testing.T) {
 					Namespace: "namespace",
 				},
 				Spec: argov1alpha1.ApplicationSetSpec{
-					Template: argov1alpha1.ApplicationSetTemplate{
+					Template: &argov1alpha1.ApplicationSetTemplate{
 						Spec: argov1alpha1.ApplicationSpec{
 							Project: "project",
 						},
@@ -428,7 +428,7 @@ func TestCreateOrUpdateInCluster(t *testing.T) {
 					Namespace: "namespace",
 				},
 				Spec: argov1alpha1.ApplicationSetSpec{
-					Template: argov1alpha1.ApplicationSetTemplate{
+					Template: &argov1alpha1.ApplicationSetTemplate{
 						Spec: argov1alpha1.ApplicationSpec{
 							Project: "project",
 						},
@@ -486,7 +486,7 @@ func TestCreateOrUpdateInCluster(t *testing.T) {
 					Namespace: "namespace",
 				},
 				Spec: argov1alpha1.ApplicationSetSpec{
-					Template: argov1alpha1.ApplicationSetTemplate{
+					Template: &argov1alpha1.ApplicationSetTemplate{
 						Spec: argov1alpha1.ApplicationSpec{
 							Project: "project",
 						},
@@ -548,7 +548,7 @@ func TestCreateOrUpdateInCluster(t *testing.T) {
 					Namespace: "namespace",
 				},
 				Spec: argov1alpha1.ApplicationSetSpec{
-					Template: argov1alpha1.ApplicationSetTemplate{
+					Template: &argov1alpha1.ApplicationSetTemplate{
 						Spec: argov1alpha1.ApplicationSpec{
 							Project: "project",
 						},
@@ -608,7 +608,7 @@ func TestCreateOrUpdateInCluster(t *testing.T) {
 					Namespace: "namespace",
 				},
 				Spec: argov1alpha1.ApplicationSetSpec{
-					Template: argov1alpha1.ApplicationSetTemplate{
+					Template: &argov1alpha1.ApplicationSetTemplate{
 						Spec: argov1alpha1.ApplicationSpec{
 							Project: "project",
 						},
@@ -680,7 +680,7 @@ func TestCreateOrUpdateInCluster(t *testing.T) {
 					Namespace: "namespace",
 				},
 				Spec: argov1alpha1.ApplicationSetSpec{
-					Template: argov1alpha1.ApplicationSetTemplate{
+					Template: &argov1alpha1.ApplicationSetTemplate{
 						Spec: argov1alpha1.ApplicationSpec{
 							Project:     "project",
 							Source:      argov1alpha1.ApplicationSource{Path: "path", TargetRevision: "revision", RepoURL: "repoURL"},
@@ -760,7 +760,7 @@ func TestCreateOrUpdateInCluster(t *testing.T) {
 					Namespace: "namespace",
 				},
 				Spec: argov1alpha1.ApplicationSetSpec{
-					Template: argov1alpha1.ApplicationSetTemplate{
+					Template: &argov1alpha1.ApplicationSetTemplate{
 						Spec: argov1alpha1.ApplicationSpec{
 							Project: "project",
 						},
@@ -902,7 +902,7 @@ func TestRemoveFinalizerOnInvalidDestination_FinalizerTypes(t *testing.T) {
 					Namespace: "namespace",
 				},
 				Spec: argov1alpha1.ApplicationSetSpec{
-					Template: argov1alpha1.ApplicationSetTemplate{
+					Template: &argov1alpha1.ApplicationSetTemplate{
 						Spec: argov1alpha1.ApplicationSpec{
 							Project: "project",
 						},
@@ -1064,7 +1064,7 @@ func TestRemoveFinalizerOnInvalidDestination_DestinationTypes(t *testing.T) {
 					Namespace: "namespace",
 				},
 				Spec: argov1alpha1.ApplicationSetSpec{
-					Template: argov1alpha1.ApplicationSetTemplate{
+					Template: &argov1alpha1.ApplicationSetTemplate{
 						Spec: argov1alpha1.ApplicationSpec{
 							Project: "project",
 						},
@@ -1192,7 +1192,7 @@ func TestCreateApplications(t *testing.T) {
 					Namespace: "namespace",
 				},
 				Spec: argov1alpha1.ApplicationSetSpec{
-					Template: argov1alpha1.ApplicationSetTemplate{
+					Template: &argov1alpha1.ApplicationSetTemplate{
 						Spec: argov1alpha1.ApplicationSpec{
 							Project: "project",
 						},
@@ -1249,7 +1249,7 @@ func TestCreateApplications(t *testing.T) {
 					Namespace: "namespace",
 				},
 				Spec: argov1alpha1.ApplicationSetSpec{
-					Template: argov1alpha1.ApplicationSetTemplate{
+					Template: &argov1alpha1.ApplicationSetTemplate{
 						Spec: argov1alpha1.ApplicationSpec{
 							Project: "project",
 						},
@@ -1361,7 +1361,7 @@ func TestDeleteInCluster(t *testing.T) {
 					Namespace: "namespace",
 				},
 				Spec: argov1alpha1.ApplicationSetSpec{
-					Template: argov1alpha1.ApplicationSetTemplate{
+					Template: &argov1alpha1.ApplicationSetTemplate{
 						Spec: argov1alpha1.ApplicationSpec{
 							Project: "project",
 						},
@@ -1804,7 +1804,7 @@ func TestReconcilerValidationErrorBehaviour(t *testing.T) {
 					},
 				},
 			},
-			Template: argov1alpha1.ApplicationSetTemplate{
+			Template: &argov1alpha1.ApplicationSetTemplate{
 				ApplicationSetTemplateMeta: argov1alpha1.ApplicationSetTemplateMeta{
 					Name:      "{{.cluster}}",
 					Namespace: "argocd",
@@ -1889,7 +1889,7 @@ func TestSetApplicationSetStatusCondition(t *testing.T) {
 					}},
 				}},
 			},
-			Template: argov1alpha1.ApplicationSetTemplate{},
+			Template: &argov1alpha1.ApplicationSetTemplate{},
 		},
 	}
 

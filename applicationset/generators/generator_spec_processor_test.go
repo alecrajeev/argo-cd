@@ -76,14 +76,15 @@ func TestMatchValues(t *testing.T) {
 				Spec: argoprojiov1alpha1.ApplicationSetSpec{},
 			}
 
+			emptyTemplate := emptyTemplate()
 			results, err := Transform(argoprojiov1alpha1.ApplicationSetGenerator{
 				Selector: testCase.selector,
 				List: &argoprojiov1alpha1.ListGenerator{
 					Elements: testCase.elements,
-					Template: emptyTemplate(),
+					Template: emptyTemplate,
 				}},
 				data,
-				emptyTemplate(),
+				&emptyTemplate,
 				&applicationSetInfo, nil)
 
 			assert.NoError(t, err)
